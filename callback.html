@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Autorización · OfertasFree CL</title><link rel="stylesheet" href="estilo.css"></head><body>
+<header><b>OfertasFree CL</b></header><main>
+<h1>Autorización de TikTok</h1>
+<div class="box" id="ok" hidden><p>✅ TikTok autorizó la app. Copia este código y pégalo en la ventana del bot:</p><code id="code"></code><button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent);this.textContent='✅ Copiado'">Copiar código</button></div>
+<div class="box" id="err" hidden><p>❌ La autorización no se completó: <span id="msg"></span></p></div>
+<div class="box" id="none"><p>Esta página recibe la respuesta de TikTok al autorizar OfertasFree CL Publisher.</p></div>
+<script>
+const p=new URLSearchParams(location.search);
+if(p.get('code')){document.getElementById('none').hidden=true;document.getElementById('ok').hidden=false;document.getElementById('code').textContent=p.get('code');}
+else if(p.get('error')){document.getElementById('none').hidden=true;document.getElementById('err').hidden=false;document.getElementById('msg').textContent=p.get('error_description')||p.get('error');}
+</script>
+</main><footer>OfertasFree CL · Chile · <a href="index.html">Inicio</a> · <a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a></footer></body></html>
